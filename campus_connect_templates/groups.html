@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- SE Lab Template provided by Assistant Prof. Vishesh Panghal -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect - Groups</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-light">
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">Campus Connect</h2>
+            <div class="nav-links">
+                <a href="dashboard.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="groups.html" class="active" data-testid="nav-groups">Groups</a>
+                <a href="resources.html" data-testid="nav-resources">Resources</a>
+                <a href="profile.html" class="btn btn-outline" data-testid="nav-profile">Profile</a>
+                <a href="index.html" class="btn btn-outline" data-testid="nav-logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="full-container">
+        <div class="message-box" data-testid="message-box" hidden></div>
+
+        <div class="page-header">
+            <div>
+                <h1>Clubs & Student Communities</h1>
+                <p>Find your community, join student-led societies, and take part in collaborative campus projects.</p>
+            </div>
+            <div>
+                <button class="btn btn-primary" data-testid="create-group-btn">+ Create New Club</button>
+            </div>
+        </div>
+
+        <div class="filter-bar card" style="padding: 1rem;">
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" placeholder="Search groups by club name or keyword..." data-testid="group-search">
+            </div>
+            <div class="filter-pills">
+                <button class="pill-btn active" data-category="all">All Groups</button>
+                <button class="pill-btn" data-category="Technical">Technical</button>
+                <button class="pill-btn" data-category="Arts & Culture">Arts & Culture</button>
+                <button class="pill-btn" data-category="Academic">Academic</button>
+                <button class="pill-btn" data-category="Sports">Sports</button>
+            </div>
+        </div>
+
+        <section class="cards-grid" data-testid="groups-grid">
+            <!-- Rendered dynamically by script.js -->
+        </section>
+    </main>
+
+    <!-- Create Group Modal -->
+    <div id="createGroupModal" class="modal" aria-hidden="true">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>Create a Student Group</h2>
+                <span class="close" data-testid="close-group-modal">&times;</span>
+            </div>
+            <form id="groupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="groupName">Club / Organization Name</label>
+                    <input type="text" id="groupName" name="groupName" placeholder="e.g. Web Development Circle" required>
+                </div>
+                <div class="form-group">
+                    <label for="groupCategory">Category</label>
+                    <select id="groupCategory" name="groupCategory" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem;">
+                        <option value="Technical">Technical</option>
+                        <option value="Arts & Culture">Arts & Culture</option>
+                        <option value="Academic">Academic</option>
+                        <option value="Sports">Sports</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="groupMeeting">Regular Meetup Schedule</label>
+                    <input type="text" id="groupMeeting" name="groupMeeting" placeholder="e.g. Every Friday @ 4:00 PM" required>
+                </div>
+                <div class="form-group">
+                    <label for="groupDescription">Mission & Description</label>
+                    <textarea id="groupDescription" name="groupDescription" rows="3" placeholder="Tell students about activities, projects, and goals..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register Club</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>Campus Connect Template - Designed by Assistant Prof. Vishesh Panghal for SE Lab</p>
+    </footer>
+</body>
+</html>

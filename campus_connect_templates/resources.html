@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- SE Lab Template provided by Assistant Prof. Vishesh Panghal -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect - Resources</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-light">
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">Campus Connect</h2>
+            <div class="nav-links">
+                <a href="dashboard.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="groups.html">Groups</a>
+                <a href="resources.html" class="active" data-testid="nav-resources">Resources</a>
+                <a href="profile.html" class="btn btn-outline" data-testid="nav-profile">Profile</a>
+                <a href="index.html" class="btn btn-outline" data-testid="nav-logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="full-container">
+        <div class="message-box" data-testid="message-box" hidden></div>
+
+        <div class="page-header">
+            <div>
+                <h1>Campus Resource Management</h1>
+                <p>Reserve high-tech lab equipment, study pods, conference AV gear, and research facilities.</p>
+            </div>
+            <div>
+                <button class="btn btn-primary" data-testid="request-resource-btn">+ Add / Request Equipment</button>
+            </div>
+        </div>
+
+        <div class="filter-bar card" style="padding: 1rem;">
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" placeholder="Search resources by name, room, or category..." data-testid="resource-search">
+            </div>
+            <div class="filter-pills">
+                <button class="pill-btn active" data-category="all">All Resources</button>
+                <button class="pill-btn" data-category="Lab & Computing">Lab & Computing</button>
+                <button class="pill-btn" data-category="Study Spaces">Study Spaces</button>
+                <button class="pill-btn" data-category="AV & Media">AV & Media</button>
+            </div>
+        </div>
+
+        <section class="cards-grid" data-testid="resources-grid">
+            <!-- Rendered dynamically by script.js -->
+        </section>
+    </main>
+
+    <!-- Book Resource Modal -->
+    <div id="bookResourceModal" class="modal" aria-hidden="true">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>Reserve: <span id="bookResourceName" style="color: var(--primary);"></span></h2>
+                <span class="close" data-testid="close-book-modal">&times;</span>
+            </div>
+            <form id="bookForm" class="auth-form">
+                <div class="form-group">
+                    <label for="bookDate">Reservation Date</label>
+                    <input type="text" id="bookDate" name="bookDate" placeholder="e.g. Oct 16, 2026 or Today" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookSlot">Available Time Slot</label>
+                    <select id="bookSlot" name="bookSlot" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem;">
+                        <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
+                        <option value="11:00 AM - 01:00 PM">11:00 AM - 01:00 PM</option>
+                        <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
+                        <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bookPurpose">Purpose / Course Project</label>
+                    <input type="text" id="bookPurpose" name="bookPurpose" placeholder="e.g. SE Lab Project or ML Model Training" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Request Resource Modal -->
+    <div id="requestResourceModal" class="modal" aria-hidden="true">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>Request New Resource</h2>
+                <span class="close" data-testid="close-request-modal">&times;</span>
+            </div>
+            <form id="requestForm" class="auth-form">
+                <div class="form-group">
+                    <label for="reqName">Resource / Equipment Name</label>
+                    <input type="text" id="reqName" name="reqName" placeholder="e.g. Oscilloscope Kit or VR Headset" required>
+                </div>
+                <div class="form-group">
+                    <label for="reqCategory">Category</label>
+                    <select id="reqCategory" name="reqCategory" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem;">
+                        <option value="Lab & Computing">Lab & Computing</option>
+                        <option value="Study Spaces">Study Spaces</option>
+                        <option value="AV & Media">AV & Media</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reqLocation">Lab Room / Building Location</label>
+                    <input type="text" id="reqLocation" name="reqLocation" placeholder="e.g. Hardware Lab 104" required>
+                </div>
+                <div class="form-group">
+                    <label for="reqDesc">Specifications & Notes</label>
+                    <textarea id="reqDesc" name="reqDesc" rows="3" placeholder="Description of capabilities, safety guidelines, and specs..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit to Resource Inventory</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>Campus Connect Template - Designed by Assistant Prof. Vishesh Panghal for SE Lab</p>
+    </footer>
+</body>
+</html>

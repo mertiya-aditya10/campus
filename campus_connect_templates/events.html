@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- SE Lab Template provided by Assistant Prof. Vishesh Panghal -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect - Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-light">
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">Campus Connect</h2>
+            <div class="nav-links">
+                <a href="dashboard.html">Home</a>
+                <a href="events.html" class="active" data-testid="nav-events">Events</a>
+                <a href="groups.html" data-testid="nav-groups">Groups</a>
+                <a href="resources.html" data-testid="nav-resources">Resources</a>
+                <a href="profile.html" class="btn btn-outline" data-testid="nav-profile">Profile</a>
+                <a href="index.html" class="btn btn-outline" data-testid="nav-logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="full-container">
+        <div class="message-box" data-testid="message-box" hidden></div>
+
+        <div class="page-header">
+            <div>
+                <h1>Campus Events</h1>
+                <p>Explore upcoming workshops, hackathons, and cultural seminars, or host your own.</p>
+            </div>
+            <div>
+                <button class="btn btn-primary" data-testid="create-event-btn">+ Host New Event</button>
+            </div>
+        </div>
+
+        <div class="filter-bar card" style="padding: 1rem;">
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" placeholder="Search events by title, keyword, or venue..." data-testid="event-search">
+            </div>
+            <div class="filter-pills">
+                <button class="pill-btn active" data-category="all">All Events</button>
+                <button class="pill-btn" data-category="Tech">Tech</button>
+                <button class="pill-btn" data-category="Cultural">Cultural</button>
+                <button class="pill-btn" data-category="Sports">Sports</button>
+                <button class="pill-btn" data-category="Academic">Academic</button>
+            </div>
+        </div>
+
+        <section class="cards-grid" data-testid="events-grid">
+            <!-- Rendered dynamically by script.js -->
+        </section>
+    </main>
+
+    <!-- Create Event Modal -->
+    <div id="createEventModal" class="modal" aria-hidden="true">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>Host a Campus Event</h2>
+                <span class="close" data-testid="close-event-modal">&times;</span>
+            </div>
+            <form id="eventForm" class="auth-form">
+                <div class="form-group">
+                    <label for="eventTitle">Event Title</label>
+                    <input type="text" id="eventTitle" name="eventTitle" placeholder="e.g. AI & Cloud Workshop 2026" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventCategory">Category</label>
+                    <select id="eventCategory" name="eventCategory" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem;">
+                        <option value="Tech">Tech</option>
+                        <option value="Cultural">Cultural</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Academic">Academic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Date</label>
+                    <input type="text" id="eventDate" name="eventDate" placeholder="e.g. Oct 28 or October 28, 2026" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventTime">Time & Duration</label>
+                    <input type="text" id="eventTime" name="eventTime" placeholder="e.g. 10:00 AM - 02:00 PM" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventLocation">Campus Venue / Location</label>
+                    <input type="text" id="eventLocation" name="eventLocation" placeholder="e.g. Auditorium Hall B" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description & Highlights</label>
+                    <textarea id="eventDescription" name="eventDescription" rows="3" placeholder="Brief details about the event, speakers, agenda..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Publish Event</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>Campus Connect Template - Designed by Assistant Prof. Vishesh Panghal for SE Lab</p>
+    </footer>
+</body>
+</html>

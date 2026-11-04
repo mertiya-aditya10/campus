@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!-- SE Lab Template provided by Assistant Prof. Vishesh Panghal -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect - Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-light">
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">Campus Connect</h2>
+            <div class="nav-links">
+                <a href="dashboard.html">Home</a>
+                <a href="events.html" data-testid="nav-events">Events</a>
+                <a href="groups.html" data-testid="nav-groups">Groups</a>
+                <a href="resources.html" data-testid="nav-resources">Resources</a>
+                <a href="profile.html" class="active" data-testid="nav-profile">Profile</a>
+                <a href="index.html" class="btn btn-outline" data-testid="nav-logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <div class="message-box" data-testid="message-box" hidden></div>
+
+        <!-- Main Profile Info -->
+        <section class="profile-main card">
+            <div class="profile-header-bg"></div>
+            <div class="profile-details-wrapper">
+                <div class="avatar-large"></div>
+                <div class="profile-info">
+                    <h2><span data-testid="profile-name">Student Name</span> <span class="badge">Student</span></h2>
+                    <p class="bio" data-testid="profile-bio">Passionate about web development, AI, and open source. CS batch of '25.</p>
+                    <ul class="profile-meta">
+                        <li>📍 University Campus</li>
+                        <li data-testid="profile-email">student@campus.edu</li>
+                        <li data-testid="profile-github">github.com/student</li>
+                    </ul>
+                </div>
+                <button class="btn btn-primary edit-profile-btn" data-testid="edit-profile-btn">Edit Profile</button>
+            </div>
+        </section>
+
+        <!-- Profile Tabs -->
+        <section class="profile-content">
+            <div class="tabs">
+                <button class="tab active" data-testid="tab-posts" data-target-panel="panel-posts">My Posts</button>
+                <button class="tab" data-testid="tab-about" data-target-panel="panel-about">About</button>
+                <button class="tab" data-testid="tab-connections" data-target-panel="panel-connections">Connections</button>
+            </div>
+            
+            <!-- Posts Panel -->
+            <div id="panel-posts" class="card tab-panel active">
+                <h3>Recent Activity</h3>
+                <div class="post-feed">
+                    <div class="card post">
+                        <div class="post-header">
+                            <div class="avatar-small"></div>
+                            <div class="post-meta">
+                                <h4>Student Name</h4>
+                                <span>1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p>Completed the CampusConnect login and profile templates for SE Lab.</p>
+                        </div>
+                    </div>
+                    <div class="card post">
+                        <div class="post-header">
+                            <div class="avatar-small"></div>
+                            <div class="post-meta">
+                                <h4>Student Name</h4>
+                                <span>3 days ago</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p>Just pushed my final project for the Web Dev course! Check it out! 🚀</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Panel -->
+            <div id="panel-about" class="card tab-panel">
+                <h3>About & Academic Info</h3>
+                <div class="about-grid">
+                    <div class="info-group">
+                        <h4>Academic Department</h4>
+                        <p>Computer Science & Engineering</p>
+                        <h4>Degree & Graduation</h4>
+                        <p>B.Tech in CSE — Class of 2025</p>
+                        <h4>Student ID</h4>
+                        <p>CC-2022-CSE-0142</p>
+                    </div>
+                    <div class="info-group">
+                        <h4>Enrolled Courses</h4>
+                        <p>Software Engineering Lab (CS302)<br>Machine Learning (CS305)<br>Database Management Systems (CS204)</p>
+                        <h4>Technical Skills</h4>
+                        <div class="skills-wrapper">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML5 / CSS3</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Git & CI/CD</span>
+                            <span class="skill-tag">React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connections Panel -->
+            <div id="panel-connections" class="card tab-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3>Campus Connections (4)</h3>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">42 Total Network Members</span>
+                </div>
+                <div class="connections-grid">
+                    <div class="connection-card">
+                        <div class="connection-avatar"></div>
+                        <h4 class="connection-name">Jane Doe</h4>
+                        <p class="connection-dept">AI&DS '26</p>
+                        <button class="btn btn-sm btn-primary btn-connect-toggle">Connected ✓</button>
+                    </div>
+                    <div class="connection-card">
+                        <div class="connection-avatar" style="background: linear-gradient(135deg, #10B981, #3B82F6);"></div>
+                        <h4 class="connection-name">John Smith</h4>
+                        <p class="connection-dept">Computer Science '25</p>
+                        <button class="btn btn-sm btn-primary btn-connect-toggle">Connected ✓</button>
+                    </div>
+                    <div class="connection-card">
+                        <div class="connection-avatar" style="background: linear-gradient(135deg, #F59E0B, #EF4444);"></div>
+                        <h4 class="connection-name">Alex Rivera</h4>
+                        <p class="connection-dept">ECE '25</p>
+                        <button class="btn btn-sm btn-outline btn-connect-toggle">Connect</button>
+                    </div>
+                    <div class="connection-card">
+                        <div class="connection-avatar" style="background: linear-gradient(135deg, #8B5CF6, #EC4899);"></div>
+                        <h4 class="connection-name">Priya Sharma</h4>
+                        <p class="connection-dept">Data Science '26</p>
+                        <button class="btn btn-sm btn-outline btn-connect-toggle">Connect</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <div id="editModal" class="modal" data-testid="edit-modal" aria-hidden="true">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>Edit Profile</h2>
+                <span class="close" data-testid="close-modal">&times;</span>
+            </div>
+            <form id="profileForm" class="auth-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" value="Student Name" required data-testid="edit-name">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio" rows="3" data-testid="edit-bio">Passionate about web development, AI, and open source. CS batch of '25.</textarea>
+                </div>
+                <div class="form-actions" style="margin-top: 1rem;">
+                    <button type="submit" class="btn btn-primary" data-testid="save-profile-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>Campus Connect Template - Designed by Assistant Prof. Vishesh Panghal for SE Lab</p>
+    </footer>
+</body>
+</html>
